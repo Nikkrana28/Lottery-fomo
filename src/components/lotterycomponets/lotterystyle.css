@@ -1,0 +1,146 @@
+body {
+  background-image: url("https://res.cloudinary.com/ontraveldiary/image/upload/v1633352992/FOMOBABY/background1_oo36u2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+.paraent1{
+  position:relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: auto;
+  gap: 10px;
+  max-width: 60%;
+  font-size: 10px;
+  
+ 
+  padding: 10px;
+}
+
+
+.paraent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.playlottery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: rgb(0,0,0,0.05);
+  margin-top: 10px 0px 10px 0px;
+  border-radius: 10px;
+  vertical-align: middle;
+
+}
+
+.entery-lottery{
+  margin-bottom: 10px;
+}
+
+.lottery-id{
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.Pot-price{
+  font-size: 18px;
+}
+
+
+.card {
+  box-shadow: 5px 5px rgba(0, 171, 24, 0.05);
+}
+
+.card-body{
+  background-color: rgba(248, 255, 247, 0.849);
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+
+}
+.card-title{
+  background-color: rgb(5, 99, 4);
+  border-radius: 3px;
+  text-align: start;
+  width: 100%;
+  color: #ffffff;
+  padding: 5px
+}
+.card-subtitle{
+  background-color: rgb(5, 99, 4);
+  border-radius: 3px;
+  text-align: start;
+  color: #ffffff;
+  padding: 5px
+
+}
+
+.winner {
+  word-wrap: break-word;
+  font-size: 22px;
+  font-weight: 700;
+  color: rgb(91, 161, 241);
+}
+
+.not-live{
+  font-size: 30px;
+  color: rgb(201, 48, 48);
+}
+
+.lottery-expired{
+  font-size: 16px;
+  color: rgb(201, 48, 48);
+}
+
+.card-link {
+  font-size: 30px;
+  color: rgb(25, 99, 25);
+}
+
+.table-responsive {
+  max-height: 300px;
+
+}
+
+#form-flex{
+  vertical-align:middle;
+}
+/* 
+
+
+@media only screen and (max-width: 950px) {
+  .winner{
+    font-size: 16px;
+  
+  }
+  
+}
+
+@media only screen and (max-width: 750px) {
+  .winner{
+    font-size: 13px;
+  }
+  
+}
+
+@media only screen and (max-width: 650px) {
+  .winner{
+    font-size: 13px;
+  }
+  
+}
+
+@media only screen and (max-width: 450px) {
+  .winner{
+    font-size: 6px;
+  }
+} */
