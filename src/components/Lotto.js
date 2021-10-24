@@ -18,12 +18,14 @@ const ComingSoon = () => {
   const [idslist, setIdslist] = useState([])
   const [id, setId] = useState()
   const [account, setAccount] = useState(false)
+  const [price, setPrice] = useState()
   var web3
   var contractobj
 
   try {
     useEffect(() => {
       connect();
+      getPrice();
       get();
     }, [])
     
@@ -31,14 +33,32 @@ const ComingSoon = () => {
       if (window.ethereum) {
         window.ethereum.enable();
         web3 = new Web3(window.ethereum);
-        contractobj = new web3.eth.Contract(lotteryGeneratorJson, "0xa2D52E6F7c4488680FFb62397913be9718724eA2")
+        contractobj = new web3.eth.Contract(lotteryGeneratorJson, "0xa954e7Ed2DDFdFDdEAb7C66D09e96DE48d9A04dd")
       }
     }
-    const getaccount = async() => {
-      
+    async function getPrice() {
+      request('GET', "https://api.pancakeswap.info/api/v2/tokens/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c")
+        .then((r1) => {
+          var x1 = JSON.parse(r1.target.responseText);
+          let val = Number(x1.data.price).toFixed(13)
+          setPrice(val)
+        }).catch(err => {
+          console.log(err);
+        })
+
+
+      function request(method, url) {
+        return new Promise(function (resolve, reject) {
+          var xhr = new XMLHttpRequest();
+          xhr.open(method, url);
+          xhr.onload = resolve;
+          xhr.onerror = reject;
+          xhr.send();
+        });
+      }
+
     }
     
-    getaccount();
     const get = async () => {
       const accounts = await web3.eth.getAccounts();
       setAccount(accounts[0]);
@@ -60,7 +80,7 @@ const ComingSoon = () => {
   }
   
   
-
+console.log("price fomo", Number(price).toFixed(0))
   if (id > 0) {
     for (let i = id - 1; i >= 0; i--) {
       if (!idslist.includes(i)) {
@@ -84,7 +104,7 @@ const ComingSoon = () => {
 
       <div className='paraent-grid lotto-alter'>
         <div class="lotto-com">
-          <Lotteryhead lotteryadd={currentlottery[0]} id={id} players={currentlottery[1]} lotterystats={currentlottery[6]} winners={winner} winningamount={winningamount} idslist={idslist} accounts={account} />
+          <Lotteryhead lotteryadd={currentlottery[0]} id={id} players={currentlottery[1]} lotterystats={currentlottery[6]} winners={winner} winningamount={winningamount} idslist={idslist} accounts={account} price={price}/>
         </div>
       </div>
     </div>

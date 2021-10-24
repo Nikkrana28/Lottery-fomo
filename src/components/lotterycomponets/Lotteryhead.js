@@ -7,7 +7,7 @@ import lotteryGeneratorJson from './contract/LotteryGenerator.json';
 import Expiredlottery from './Epiredlottery'
 import previouslotteries from './previous.json'
 
-function Lotteryhead({ lotteryadd, id, players, lotterystats, winners, winningamount, idslist, accounts }) {
+function Lotteryhead({ lotteryadd, id, players, lotterystats, winners, winningamount, idslist, accounts, price }) {
 
   const [expiredlottery, setExpiredlottery] = useState(true);
   const [status, setStatus] = useState(false);
@@ -19,7 +19,9 @@ function Lotteryhead({ lotteryadd, id, players, lotterystats, winners, winningam
   const [eth, setEth] = useState()
   var web3
   var contractobj
-
+  
+  var pri = Number(price).toFixed(0)
+  console.log("price fomo", Number(pri).toFixed(0))
   // useEffect(() => {
   //   getaccountaddress();
   // }, [])
@@ -33,7 +35,7 @@ function Lotteryhead({ lotteryadd, id, players, lotterystats, winners, winningam
 
   if (window.ethereum) {
     web3 = new Web3(window.ethereum);
-    contractobj = new web3.eth.Contract(lotteryGeneratorJson, "0xa2D52E6F7c4488680FFb62397913be9718724eA2")
+    contractobj = new web3.eth.Contract(lotteryGeneratorJson, "0xa954e7Ed2DDFdFDdEAb7C66D09e96DE48d9A04dd")
   }
 
 
@@ -81,7 +83,7 @@ function Lotteryhead({ lotteryadd, id, players, lotterystats, winners, winningam
       <div className="paraent1" style={{maxWidth:""}}>
         <div className="card" style={{ minWidth: "25rem", padding:"40px" }}>
         {lotterystats ? <div className='card-link'> <h3 className='card-link'>Live</h3></div> : <div className='not-live'> <h3 className='not-live'>Lottery is not live</h3> </div>}
-        <div className='Pot-value'> <h5>Pot value: <span className='Pot-price'> {winningamount} BNB </span></h5></div>
+        <div className='Pot-value'> <h5>Pot value: <span className='Pot-price'> $ {winningamount * pri}   </span></h5></div>
         <div className='lottery-id'><h5>Lottery ID: <span className='lottery-id'> {id} </span> </h5></div>
         <div className='entery-lottery'>
           {lotterystats ? <div className='playlottery'>

@@ -12,7 +12,7 @@ function Playlottery({ participants, accounts }) {
 
     if (window.ethereum) {
         web3 = new Web3(window.ethereum);
-        contractobj = new web3.eth.Contract(LotteryGeneratorJson, "0xa2D52E6F7c4488680FFb62397913be9718724eA2")
+        contractobj = new web3.eth.Contract(LotteryGeneratorJson, "0xa954e7Ed2DDFdFDdEAb7C66D09e96DE48d9A04dd")
     }
     console.log("account",accounts)
 
