@@ -11,41 +11,42 @@ import Community from "./components/Community";
 import News from "./components/News";
 import MobNav from "./components/MobNav";
 import Lottery from './components/Lotto'
+import Logo from './assets/LogoTextNewWhite.png'
 
 function App() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [mobShow, setMobShow] = useState(false);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 961);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 961);
 
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => {
-        const ismobile = window.innerWidth < 960;
-        if (ismobile !== isMobile) {
-          setIsMobile(ismobile);
-          setShow(false);
-        }
-      },
-      false
-    );
-  }, [isMobile]);
+  // useEffect(() => {
+  //   window.addEventListener(
+  //     "resize",
+  //     () => {
+  //       const ismobile = window.innerWidth < 960;
+  //       if (ismobile !== isMobile) {
+  //         setIsMobile(ismobile);
+  //         setShow(false);
+  //       }
+  //     },
+  //     false
+  //   );
+  // }, [isMobile]);
 
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => {
-        const isDesktop = window.innerWidth > 961;
-        if (isDesktop !== isDesktop) {
-          setIsDesktop(isDesktop);
-          setShow(true);
-        }
-      },
-      false
-    );
-  }, [isDesktop]);
+  // useEffect(() => {
+  //   window.addEventListener(
+  //     "resize",
+  //     () => {
+  //       const isDesktop = window.innerWidth > 961;
+  //       if (isDesktop !== isDesktop) {
+  //         setIsDesktop(isDesktop);
+  //         setShow(true);
+  //       }
+  //     },
+  //     false
+  //   );
+  // }, [isDesktop]);
 
   return (
     <Router>
@@ -60,13 +61,13 @@ function App() {
               }}
             >
               <div className="button-aside">
-                <CgMenu
+                {/* <CgMenu
                   className="menu-icon"
                   onClick={() => setMobShow(!mobShow)}
-                />
+                /> */}
               </div>
               <img
-                src="https://res.cloudinary.com/ontraveldiary/image/upload/v1633359750/FOMOBABY/fomo-logo_1_l9nszt.png"
+                src={Logo}
                 alt="logo"
                 className="logo"
                 height={55}
@@ -98,16 +99,16 @@ function App() {
 
       {/* <Navbar /> */}
 
-      {mobShow && <MobNav mobShow={mobShow} close={() => setMobShow(false)} />}
+      {/* {mobShow && <MobNav mobShow={mobShow} close={() => setMobShow(false)} />} */}
 
       <div>
         {/* <Route path="/" exact component={HomePage} /> */}
-        <Route path="/swap" exact component={ComingSoon} />
+        {/* <Route path="/swap" exact component={ComingSoon} /> */}
         <Route path="/" exact component={Lottery} />
-        <Route path="/comingsoonnft" exact component={ComingSoonNft} />
+        {/* <Route path="/comingsoonnft" exact component={ComingSoonNft} />
         <Route path="/comingsoonstaking" exact component={ComingSoon} />
         <Route path="/community" exact component={Community} />
-        <Route path="/news" exact component={News} />
+        <Route path="/news" exact component={News} /> */}
       </div>
     </Router>
   );

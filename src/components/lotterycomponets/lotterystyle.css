@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://res.cloudinary.com/ontraveldiary/image/upload/v1633352992/FOMOBABY/background1_oo36u2.png");
+  background-image: url("./../../assets/fomobg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -16,8 +16,6 @@ body {
   gap: 10px;
   max-width: 60%;
   font-size: 10px;
-  
- 
   padding: 10px;
 }
 
